@@ -139,6 +139,10 @@ function setup() {
 }
 
 
+function  mouseMoved() {
+  getAudioContext().resume();
+}
+
 
 
 
@@ -153,10 +157,6 @@ function listening() {
     audioContext,
     mic.stream,
     modelLoaded);
-}
-
-function  mouseMoved() {
-  getAudioContext().resume();
 }
 
 
