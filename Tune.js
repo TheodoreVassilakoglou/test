@@ -138,9 +138,6 @@ function setup() {
   mic.start(listening);
 }
 
-function  mouseMoved() {
-  getAudioContext().resume();
-}
 
 
 
@@ -157,6 +154,11 @@ function listening() {
     mic.stream,
     modelLoaded);
 }
+
+function  mouseMoved() {
+  getAudioContext().resume();
+}
+
 
 
 function gotPitch(error, frequency) {
