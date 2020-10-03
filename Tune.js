@@ -185,9 +185,6 @@ function draw() {
   fill(255);
   textSize(32);
   text(freq.toFixed(2), width / 2, height - 150);
-  if (!tapped) {
-    text('tap to play', width/2, 20);
-  }
 
 let closestNote = -1;
 let recordDiff = Infinity;
