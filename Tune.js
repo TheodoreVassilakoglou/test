@@ -148,7 +148,7 @@ background(225);
 text(getAudioContext().state, 20, 20);
 }
 
-function touchStarted() {
+function mousePressed() {
   userStartAudio();
 }
 
