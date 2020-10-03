@@ -139,10 +139,7 @@ function setup() {
   myDiv.position(0, 0);
 
   // This won't play until the context has started
-  getAudioContext().resume();
-
-  // Start the audio context on a click/touch event
-  userStartAudio().then(function() {
+  getAudioContext().resume().then(function() {
      myDiv.remove();
    });
 
@@ -242,13 +239,3 @@ rect(windowWidth/2 + diff / 0.1, 100, 10, 75);
 
 }
 
-noStroke();
-fill(255, 0, 0);
-if (abs(diff) < 0.5 ) {
-  fill(0, 255, 0);
-
-}
-
-rect(windowWidth/2 + diff / 0.1, 100, 10, 75);
-
-}
