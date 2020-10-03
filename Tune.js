@@ -138,13 +138,9 @@ function setup() {
   var myDiv = createDiv('click to start audio');
   myDiv.position(0, 0);
 
-  // This won't play until the context has started
-  getAudioContext().resume();
 
   // Start the audio context on a click/touch event
-  userStartAudio().then(function() {
-     myDiv.remove();
-   });
+ getAudioContext().resume();
 
 
 }
