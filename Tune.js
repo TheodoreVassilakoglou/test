@@ -141,6 +141,8 @@ function setup() {
 
 function  mousePressed() {
   getAudioContext().resume();
+    userStartAudio();
+
 }
 
 
@@ -158,6 +160,7 @@ function listening() {
     mic.stream,
     modelLoaded)
     getAudioContext().resume();
+
 
 }
 
