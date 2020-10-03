@@ -161,7 +161,6 @@ function listening() {
     audioContext,
     mic.stream,
     modelLoaded)
-    getAudioContext().resume();
 
 }
 
@@ -238,4 +237,3 @@ if (abs(diff) < 0.5 ) {
 rect(windowWidth/2 + diff / 0.1, 100, 10, 75);
 
 }
-
