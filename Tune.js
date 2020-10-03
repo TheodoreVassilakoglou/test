@@ -138,9 +138,13 @@ function setup() {
   var myDiv = createDiv('click to start audio');
   myDiv.position(0, 0);
 
+  // This won't play until the context has started
+  getAudioContext().resume();
 
   // Start the audio context on a click/touch event
- getAudioContext().resume();
+  userStartAudio().then(function() {
+     myDiv.remove();
+   });
 
 
 }
@@ -226,6 +230,17 @@ rect(windowWidth/2, 100, 200, 50);
 stroke(255);
 strokeWeight(4);
 line(windowWidth/2,0,windowWidth/2,400);
+
+noStroke();
+fill(255, 0, 0);
+if (abs(diff) < 0.5 ) {
+  fill(0, 255, 0);
+
+}
+
+rect(windowWidth/2 + diff / 0.1, 100, 10, 75);
+
+}
 
 noStroke();
 fill(255, 0, 0);
