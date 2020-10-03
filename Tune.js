@@ -135,17 +135,13 @@ function setup() {
   audioContext = getAudioContext();
   mic = new p5.AudioIn();
   mic.start(listening);
-  var myDiv = createDiv('click to start audio');
-  myDiv.position(0, 0);
-
-  // This won't play until the context has started
-  getAudioContext().resume().then(function() {
-     myDiv.remove();
-   });
-
-
+  
 }
 
+
+function  mousePressed() {
+  getAudioContext().resume();
+}
 
 
 
@@ -161,6 +157,7 @@ function listening() {
     audioContext,
     mic.stream,
     modelLoaded)
+    getAudioContext().resume();
 
 }
 
