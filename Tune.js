@@ -130,7 +130,6 @@ let notes = [
   {note:'B8', freq:7902.13},
 ];
 
-
 function setup() {
   createCanvas(windowWidth, windowHeight-58);
   audioContext = getAudioContext();
