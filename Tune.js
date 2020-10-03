@@ -135,16 +135,22 @@ function setup() {
   audioContext = getAudioContext();
   mic = new p5.AudioIn();
   mic.start(listening);
-  
+  var myDiv = createDiv('click to start audio');
+  myDiv.position(0, 0);
+  userStartAudio();
+
+
 }
 
 
-function  TouchStarted() {
-  getAudioContext().resume();
-    userStartAudio();
-
+function draw() {
+background(225);
+text(getAudioContext().state, 20, 20);
 }
 
+function mousePressed() {
+  userStartAudio();
+}
 
 
 
@@ -160,7 +166,6 @@ function listening() {
     mic.stream,
     modelLoaded)
     getAudioContext().resume();
-
 
 }
 
