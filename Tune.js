@@ -139,7 +139,7 @@ function setup() {
 }
 
 
-function  mousePressed() {
+function  TouchStarted() {
   getAudioContext().resume();
     userStartAudio();
 
