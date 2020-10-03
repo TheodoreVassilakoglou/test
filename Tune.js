@@ -156,7 +156,9 @@ function listening() {
     model_url,
     audioContext,
     mic.stream,
-    modelLoaded);
+    modelLoaded)
+    getAudioContext().resume();
+
 }
 
 
