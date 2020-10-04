@@ -130,27 +130,22 @@ let notes = [
   {note:'B8', freq:7902.13},
 ];
 
+
 function setup() {
   createCanvas(windowWidth, windowHeight-58);
   audioContext = getAudioContext();
+  if (getAudioContext().state !== 'running') {
+  text('tap to play', width/2, 20);
+}
   mic = new p5.AudioIn();
   mic.start(listening);
-  var myDiv = createDiv('click to start audio');
-  myDiv.position(0, 0);
-  userStartAudio();
-
-
-}
-
-
-function draw() {
-background(225);
-text(getAudioContext().state, 20, 20);
 }
 
 function mousePressed() {
-  userStartAudio();
+  getAudioContext().resume();
 }
+
+
 
 
 
@@ -164,11 +159,8 @@ function listening() {
     model_url,
     audioContext,
     mic.stream,
-    modelLoaded)
-    getAudioContext().resume();
-
+    modelLoaded);
 }
-
 
 
 function gotPitch(error, frequency) {
