@@ -5,7 +5,6 @@ function initAudio(){
 	// Audio Object
 	audio = new Audio();
 	audio.src = dir+"a3"+ext;
-	audio.play();
 
 	// Event Handling
 	//mynoteslist = document.getElementById("mynoteslist");
