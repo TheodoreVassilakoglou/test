@@ -1,7 +1,28 @@
+var chord = document.getElementById('chord'),
+    ctrl = document.getElementById('audioControl');
+
+ctrl.onclick = function () {
+
+    // Update the Button
+    var pause = ctrl.innerHTML === 'pause!';
+    ctrl.innerHTML = pause ? 'play!' : 'pause!';
+
+    // Update the Audio
+    var method = pause ? 'pause' : 'play';
+    chord[method]();
+
+    // Prevent Default Action
+    return false;
+};
+
+
 var inpkey = document.getElementById("inpkey");
 var inpvalue=document.getElementById("inpvalue");
 var inpvalue2=document.getElementById("inpvalue2");
 var inpvalue3=document.getElementById("inpvalue3");
+var inpvalue4=document.getElementById("inpvalue4");
+var inpvalue5=document.getElementById("inpvalue5");
+var inpvalue6=document.getElementById("inpvalue6");
 
 
 
@@ -13,6 +34,9 @@ var key = inpkey.value;
 var value = inpvalue.value;
 var value2 = inpvalue2.value;
 var value3 = inpvalue3.value;
+var value3 = inpvalue4.value;
+var value3 = inpvalue5.value;
+var value3 = inpvalue6.value;
 
 console.log(key);
 console.log(value);
@@ -23,24 +47,30 @@ btninsert.onclick = function(){
   var value = inpvalue.value;
   var value2 = inpvalue2.value;
   var value3 = inpvalue3.value;
-
-
+  var value4 = inpvalue4.value;
+  var value5 = inpvalue5.value;
+  var value6 = inpvalue6.value;
 
 if(key && value) {
-  var content = value + ', ' + value2 + value3;
+  var savekey = "Tune:"+inpkey.value;
+  var content = value + ', ' + value2 + ', ' + value3 + ', '  + value4 + ', ' + value5 + ', '  + value6;
     // if the key exists
-    if(localStorage.getItem(key)){
+    if(localStorage.getItem(savekey)){
         // add this value onto the end of the existing string
-        localStorage.setItem(key, content);
+        localStorage.setItem(savekey, content);
     }else{
         // the key doesn't exist yet, add it and the new value
-        localStorage.setItem(key, content);
+        localStorage.setItem(savekey, content);
     }
     location.reload();
 }
 };
+
 for(var i=0; i<localStorage.length; i++){
   var key=localStorage.key(i);
-  var value=localStorage.getItem(key);
-  isoutput.innerHTML += `${key}: ${value}  <br>` ;
+  if (key.includes("Tune:")){
+    var value=localStorage.getItem(key);
+    var strippedkey = key.replace(/Tune:/g,'');
+    isoutput.innerHTML += `${strippedkey}: ${value}  <br>` ;
+  }
 }
